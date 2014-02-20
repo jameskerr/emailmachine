@@ -1,0 +1,161 @@
+body#preview {
+	margin: 0;
+	background: #dbdbdb url(image_path("background-pattern.png"));
+}
+table#background {
+	width: 100%;
+	background: #dbdbdb url(image_path("background-pattern.png"));
+}
+table#wrapper {
+	width: 600px;
+}
+table#wrapper td {
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+td#logo img {
+	display: block;
+	margin-bottom: 10px;
+}
+td#header {
+	background: #3a3c4e;
+	border: 6px solid #fff;
+}
+td#header h1, td#header h3, td#header p, td.content-title h2 {
+	font-family: Georgia, serif;
+	font-weight: 500;
+	color: #fff;
+	text-shadow: 0 1px black;
+	margin: 0;
+}
+td#header h1, td#header h3 {
+	text-align: center;
+	font-variant: small-caps;
+	letter-spacing: 8px;
+}
+td#header .first-letter {
+	font-size: 66px;
+}
+td#header h1 {
+	font-size: 48px;
+}
+td#header h3 {
+	font-size: 24px;
+	font-variant: small-caps;
+}
+td#header p {
+	font-size: 14px;
+	letter-spacing: auto;
+	text-align: right;
+	margin-right: 6px;
+	margin-bottom: 6px;
+}
+img.shadow {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+table.content {
+	background: #fff;
+	
+}
+td.content-title {
+	border: 10px solid #fff;
+	width: 580px;
+	margin:0;
+	padding:0;
+}
+td.content-title h2 {
+	background: #98012e;
+	font-size: 28px;
+	line-height: 40px;
+	font-variant: small-caps;
+}
+td.content-body {
+	border: 10px solid #fff;
+	width: 580px;
+}
+p, a, li, ul, ol {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 22px;
+	letter-spacing: .2px;
+	color: #3a3c4e;
+	margin: 0;
+	font-weight: 400;
+}
+td.content-body a {
+	color: #98012e;
+	font-style: underline;
+}
+table.main-image {
+	width: 280px;
+	text-align: right;
+}
+table.main-image img {
+	display: block;
+}
+img.pic {
+	border: 5px solid #fff;
+}
+ul#jobs-list {
+	margin: 0; 
+	padding: 0;
+}
+ul#jobs-list li {
+	display: inline;
+	list-style-type: none; 
+	margin: 0;
+	padding: 0;
+}
+table#jobs td{
+}
+table#jobs h2 {
+	background: #467860; 
+}
+table.posting {
+	margin-left: 10px;
+	vertical-align: top;
+	width: 285px;
+	display:block;
+}
+td.job-info {
+		border: 5px solid #fff;
+		background: #fff;
+		width: 275px;
+}
+td.job-shadow img {
+	display: block;
+	width: 285px;
+}	
+p.job-title a{
+	font-weight: bold;
+	text-decoration: underline;
+}
+p.practice-area {
+	font-style: italic;
+}
+a.wrap_link {
+	line-height: 0px;
+}
+td#footer {
+	background: #3a3c4e url(image_path("footer-shadow.png")) repeat-x left top;
+}
+table#footer-wrapper {
+	width: 600px;
+	margin: 0 auto;
+}
+table#footer-wrapper p {
+	color: #fff;
+}
+table#footer-wrapper img {
+	margin-right: 5px;
+}
+tr.dragging table.content {
+  border: 5px dashed #ccc;
+  -webkit-transform: translate(-75px, -30px) scale(0.8, 0.8);
+  -ms-transform: translate(-75px, -30px) scale(0.8, 0.8);
+  transform: translate(-75px, -30px) scale(0.8, 0.8);
+  opacity: .75;
+}

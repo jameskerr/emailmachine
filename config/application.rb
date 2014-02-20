@@ -19,5 +19,14 @@ module EmailMachine
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    config.encoding = "utf-8"
+    config.filter_parameters += [:password]
+
+    config.active_support.escape_html_entities_in_json = true
+
+    config.active_record.whitelist_attributes = true
+
+    config.assets.precompile += ['weekly.css', 'inside.css','ebulletin.css', 'classifieds.css', 'preview_interface.css']
   end
 end

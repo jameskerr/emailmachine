@@ -1,0 +1,336 @@
+	<!--100% body table-->
+	<table cellspacing="0" border="0" cellpadding="0" width="100%" bgcolor="#f7f2e4">
+		<tr>
+			<td>
+				<!--top links-->
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td valign="middle" align="center" height="45">
+							<p>Is this email not displaying correctly? 
+								<a href="https://www.chapman.edu/law/_files/careers/secure/classifieds/<%= @today %>.html">
+								Try the web version.</a></p>
+						</td>
+					</tr>
+				</table>
+				<!--header-->
+				<table class="header" width="684" border="0" align="center" cellpadding="0" cellspacing="0">
+					<tr>
+						<td>
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td valign="top" width="173"> <!-- Left half of the header -->
+										<table border="0" cellspacing="0" cellpadding="0"> <!--ribbon-->
+											<tr>
+												<td height="120" width="45"></td>
+												<td background="<%= image_path("ribbon.jpg") %>" valign="top" bgcolor="#c72439" height="120" width="80">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td valign="bottom" align="center" height="35">
+																<p style="color: #ffffff; margin-top: 0px; margin-bottom: 0px;"
+																>ISSUE</p>
+															</td>
+														</tr>
+														<tr>
+															<td valign="middle" align="center" class="issue">
+																<p><%= @issue %></p>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</td>
+									<td valign="middle" width="493"> <!-- Right half of the header -->
+										<table width="100%" border="0" cellspacing="0" cellpadding="0"> <!--Title-->
+											<tr><td height="60"></td></tr>
+											<tr>
+												<td class="title">
+													<singleline label="Title"><h1><em>The Classifieds</em></h1></singleline>
+												</td>
+											</tr>
+											<tr><td height="40"></td></tr>
+										</table>
+										<table border="0" cellspacing="0" cellpadding="0"> <!--Tagline-->
+											<tr>
+												<td valign="middle" align="center" bgcolor="#312c26" background="<%= image_path("date-bg.jpg") %>" width="357" height="42" class="date">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td height="5">
+																<p style="text-align: center;">Career Services Newsletter</p>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</td>
+									<td width="18"></td> 
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			<!--email container-->
+			<table bgcolor="#fffdf9" cellspacing="0" border="0" align="center" cellpadding="30" width="684">
+				<tr>
+					<td>
+						<table cellspacing="0" border="0" cellpadding="0" width="100%">
+							<tr>
+								<td valign="top" width="366" class="content"> <!--Main Bar-->
+									<table width="100%" id="stories-table" cellpadding="0" cellspacing="0"> <!-- Stories -->
+										<tbody>
+											<% @stories.each do |story| %>
+											<tr id="<%= story.id %>">
+												<td>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<% unless story == @stories.first %>
+														<tr>
+															<td class="story-break">
+																<img src="<%= image_path("line-break-4.jpg") %>" width="366" height="27" />
+															</td>
+														</tr>
+														<% end %>
+														<tr>
+															<td valign="top" height="5"></td>
+														</tr>
+														<tr>
+															<td align="left" class="news">
+																<div class="action edit-story"><%= link_to "edit", edit_story_path(story), :class => 'button-link' %></div>
+																<div class="action destroy-story"><%= link_to 'X', story, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %></div>
+																<p><%= story.title %></p>
+															</td>
+														</tr>
+														<tr>
+															<td valign="top" height="18"></td>
+														</tr>
+													</table>
+													<% if story.image_name != "" or nil %>
+													<img class="story-image" src="https://law-chapman-csm.symplicity.com/tinyfiles/classifieds/<%= story.image_name %>"/>
+
+													<table width="100%" border="0" cellpadding="0" cellspacing="0">
+														<tr>
+															<td height="10">&nbsp;</td>
+														</tr>
+													</table>
+													<% end %>
+													<%= story.body.html_safe %>
+													<p><a href="<%= story.link %>"><%= story.call_to_action %></a></p>
+												</td>
+											</tr>
+										<% end %>
+										</tbody>
+									</table>
+								</td>
+								<td width="14">&nbsp;</td> <!-- simulate padding -->
+								<td valign="top" width="244"> <!-- Sidebar -->
+									<table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+										<tr>
+											<td>
+												<table align="right" width="230" border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td class="contents-container" bgcolor="#312c26" valign="top">
+															<table width="100%" border="0" cellspacing="0" cellpadding="20">
+																<tr>
+																	<td>
+																		<p>IN THIS ISSUE</p>
+																		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+																			<tr>
+																				<td height="10"></td>
+																			</tr>
+																		</table>
+																		<ul>
+																			<% @stories.each do |story| %>
+																			<li><%= story.title %></li>
+																			<% end %>
+																		</ul>
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td valign="top" class="right-rail">
+												
+												<table width="100%" border="0" cellspacing="0" cellpadding="0">
+													<tr><td height="40"></td></tr>
+												</table>
+												<table class="side-section" width="100%" cellspacing="0" cellpadding="0">
+													<tr>
+														<td width="14">
+														</td>
+														<td>
+															<% unless @jobs.count == 0 %>
+															<h2>Current Job Postings
+																<div class="action"><%= link_to 'X', {:controller => 'jobs', :action => 'delete_all'}, {data: { confirm: 'Are you sure you want to delete them all?' }, class: 'button-link' }%></div>
+															</h2>
+															<% end %>
+															<ul id="jobs-list" class="sort-list">
+																<% @jobs.each do |job| %>
+																<li id="<%= job.id %>" style="position: relative;">
+																	<div class="action edit-job"><%= link_to "edit", edit_job_path(job), :class => 'button-link' %></div>
+																	<div class="action destroy-job"><%= link_to 'X', job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %></div>
+																	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+																		<tr>
+																			<td height="20"></td>
+																		</tr>
+																	</table>
+																	<p><b><%= job.title %></b><br><%= job.employer %><br><em><%= job.practice_area %></em></p>
+																	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+																		<tr>
+																			<td height="6"></td>
+																		</tr>
+																	</table>
+																	<a href="<%= job.link %>">
+																		<table class="apply-btn" width="130" border="0" cellspacing="0" cellpadding="10">
+																			<tr>
+																				<td align="center">
+																					<p><a href="<%= job.link %>">Apply</a></p>
+																				</td>
+																			</tr>
+																		</table>
+																	</a>
+																</li>
+																<% end %>
+															</ul>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td valign="top" class="right-rail">
+												<table width="100%" border="0" cellspacing="0" cellpadding="0">
+													<tr><td height="30"></td></tr>
+												</table>
+												<table class="side-section" width="100%" cellspacing="0" cellpadding="0">
+													<tr>
+														<td width="14">
+														<td>
+														<td>
+															<% unless @events.count == 0 %>
+															<h2>Upcoming Events</h2>
+															<% end %>
+															<ul class="sort-list">
+																<% @events.each do |event| %>
+																<li>
+																	<table width="100%" border="0" cellpadding="0" cellspacing="0" style="position: relative;">
+																		<tr>
+
+																			<td height="20">
+																				<div class="action edit-event"><%= link_to "edit", edit_event_path(event), :class => 'button-link' %></div>
+																				<div class="action destroy-event"><%= link_to 'X', event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %></div>
+																			</td>
+																		</tr>
+																	</table>
+																	<p><b><%= event.title %></b><br><%= event.date.strftime("%a., %b. %d - %l:%M %p") %></p>
+																	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+																		<tr>
+																			<td height="6"></td>
+																		</tr>
+																	</table>
+																	<a href="<%= event.link %>">
+																		<table class="apply-btn" width="130" border="0" cellspacing="0" cellpadding="10">
+																			<tr>
+																				<td align="center">
+																					<p><a href="<%= event.link %>">RSVP</a></p>
+																				</td>
+																			</tr>
+																		</table>
+																		</a>
+																	</li>
+																	<% end %>
+																</ul>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											<tr>
+												<td valign="top" class="right-rail">
+													<!--break-->
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td height="30"></td>
+																	</tr>
+													</table><!--/break-->
+													<table class="side-section" width="100%" cellspacing="0" cellpadding="0">
+														<tr>
+															<td width="14">&nbsp;
+															</td>
+															<td>
+																<% unless @publics.count == 0 %>
+																<h2>Public Interest News</h2>
+																<% end %>
+																<ul id="publics-list" class="sort-list">
+																	<% @publics.each do |public| %>
+																	<li id="<%= public.id %>" style="position: relative;">
+																		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+																			<tr>
+																				<td height="10">
+																					<div class="action edit-public"><%= link_to "edit", edit_public_path(public), :class => 'button-link' %></div>
+																					<div class="action destroy-public"><%= link_to 'X', public, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %></div></td>
+																				</tr>
+																			</table>
+																			<table class="public" width="100%" border="0" cellpadding="0" cellspacing="0">
+																				<tr>
+																					<td>
+																						<p class="title"><%= public.title %></p>
+																						<%= public.body.html_safe %>
+																					</td>
+																				</tr>
+																			</table>
+																			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																				<tr>
+																					<td>
+
+																						<img src="<%= image_path("publics-break.jpg") %>" width="220" height="5" />
+
+																					</td>
+																				</tr>
+																			</table>
+																			
+																		</li>
+																		<% end %>
+																	</ul>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table><!--/section 3-->
+								<!--line break-->
+								<table cellspacing="0" border="0" cellpadding="0" width="100%">
+									<tr>
+										<td height="72"><img src="<%= image_path("line-break-2.jpg") %>" width="622" height="72" />
+										</td>
+									</tr>
+								</table><!--/line break-->
+							</td>
+						</tr>
+					</table><!--/email content-->
+							
+						
+					
+					<!--footer-->
+					<table width="680" border="0" align="center" cellpadding="30" cellspacing="0">
+						<tr>
+							<td valign="top">
+								<p style="font-size: 14px; line-height: 24px; font-family: Georgia, 'Times New Roman', Times, serif; color: #b0a08b; margin: 0px;">
+									<singleline label="Title">If you have any questions or would like like to speak with a career counselor, please <a href="http://www.chapman.edu/law/careers/contact-us.aspx" style="color: #bc1f31; text-decoration: none;">contact us</a>.</p>
+									</td>
+									<td valign="top" class="address" width="245"><multiline label="Description"><p>Chapman University<br>Dale E. Fowler School of Law<br>Career Services Office</p></multiline></td>
+								</tr>
+								<tr>
+									<td height="30"></td>
+									<td height="30"></td>
+								</tr>
+							</table><!--/footer-->
+						</td>
+					</tr>
+						</table><!--/100% body table-->

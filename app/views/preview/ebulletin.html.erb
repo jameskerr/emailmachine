@@ -1,0 +1,124 @@
+<table id="background" cellpadding="10px" cellspacing="0">
+		<tr>
+			<td align="center">
+				<table id="wrapper" cellpadding="0" cellspacing="0">
+					<tr> <!-- CSO LOGO -->
+						<td align="center" id="logo" valign="top"><br/><img src="<%= image_path("cso-logo.png") %>" />
+						</td>
+					<tr/> <!-- END CSO LOGO -->
+					<tr> <!-- HEADER -->
+						<td id="header">
+							<h1><span class="first-letter">F</span>all <span class="first-letter">R</span>ecruitment</h1>
+							<h3><img src="<%= image_path("window.png") %>"/>&nbsp;E-Bulletin</h3>
+							<p>Issue #<%= @issue %></p>
+						</td>
+					</tr> <!-- END HEADER -->
+					<tr><td><img class="shadow" src="<%= image_path("header-shadow.png") %>" /></td></tr>
+					<tr> <!-- BODY -->
+						<td id="body">
+							<!-- TABLE FOR NEWS STORIES -->
+							<table id="stories-table" cellpadding="0" cellspacing="0"> <!-- STORIES TABLE FOR DND -->
+							 <% @stories.each do |story| %>
+							 <tr id="<%= story.id %>">
+								<td>
+									<table class="content" cellspacing="0" cellpadding="0">
+										<tr>
+											<td class="content-title">
+												<div class="action edit-story"><%= link_to "edit", edit_story_path(story), :class => 'button-link' %></div>
+												<div class="action destroy-story"><%= link_to 'X', story, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %></div>
+												<h2>&nbsp;<%= story.title %></h2>
+											</td>
+										</tr>
+										<tr>
+											<td class="content-body">
+												<!-- TABLE FOR THE MAIN IMAGE TO FLOAT RIGHT -->
+												<% if story.image_name != "" && story.image_name != nil %>
+												<table class="main-image" align="right" cellpadding="0" cellspacing="0">
+													<tr>
+														<td>
+															<img class="pic" width="270" src="https://law-chapman-csm.symplicity.com/tinyfiles/classifieds/<%= story.image_name %>"><img class="shadow" src="<%= image_path("content-img-shadow.png") %>">
+														</td>
+													</tr>
+												</table>
+												<% end %>
+												<!-- CONTENT TEXT GOES HERE -->
+												<%= story.body.html_safe %>
+												<br />
+												<p><a href="<%= story.link %>"><%= story.call_to_action %></a></p>
+											</td>
+										</tr>
+									</table> 
+									<p>&nbsp;</p><!-- END NEWS STORY TABLE -->
+								</td>
+							 </tr>
+							<% end %>
+							</table> <!-- END STORIES TALBE -->
+						</td>
+					</tr> 
+					<tr>
+						<td id="jobs">
+							<table id="jobs" cellpadding="0" cellspacing="0">
+								<tr>
+									<td class="content-title jobs-title">
+										<h2>&nbsp;Job Postings<div class="action destroy-job"><%= link_to 'X', {:controller => 'jobs', :action => 'delete_all'}, {data: { confirm: 'Are you sure you want to delete them all?' }, class: 'button-link' }%></div></h2>
+									</td>
+								</tr>
+								<tr>
+									<td> <!-- ALL THE JOB POSTINGS START HERE -->
+										<br/>
+										<ul id="jobs-list"> <!-- I NEED THIS FOR THE SORTABLE FEATURE -->
+											<% @jobs.each do |job| %>
+											<li id="<%= job.id %>">
+												<a class="wrap_link" href="<%= job.link %>">
+												<table class="posting" align="left" cellspacing="0" cellpadding="0">		
+													<tr>
+														<td class="job-info">	
+															<div class="action edit-job"><%= link_to "edit", edit_job_path(job), :class => 'button-link' %></div>
+															<div class="action destroy-job"><%= link_to 'X', job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %></div>
+															<p class="job-title"><a href="<%= job.link %>"><%= job.title %></a></p>
+															<p class="employer"><%= job.employer %></p>
+															<p class="practice-area"><%= job.practice_area %></p>
+														</td>
+													</tr>
+													<tr>
+														<td class="job-shadow"><img src="<%= image_path("job-shadow.png") %>" />
+														</td>
+													</tr>
+												</table>
+												</a>
+												<% end %>
+											</li>
+										</ul>
+										<!-- END THE JOB POSTINGS -->
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr> <!-- END BODY -->
+				</table> <!-- END WRAPPER -->
+				<br/>
+			</td>
+		</tr>
+		<tr> <!-- FOOTER -->
+			<td id="footer">
+				<br/>
+				<br/>
+				<table align="center" cellpadding="10px"
+				id="footer-wrapper">
+					<tr>
+						<td>
+							<p>The CSO is open all summer!</p>
+							<p>Please stop by or schedule an appointment.</p>
+						</td>
+						<td>
+							<a href="https://www.facebook.com/ChapmanLawSchool"><img src="<%= image_path("facebook.png") %>"><a/>&nbsp;
+							<a href="https://twitter.com/chapmanlawcso"><img src="<%= image_path("twitter.png") %>"></a>
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<br/>
+				<br/>
+			</td>
+		</tr> <!-- END FOOTER -->
+	</table> <!-- END BACKGROUND -->

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @public.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @public.body %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @public.position %>
+</p>
+
+
+<%= link_to 'Edit', edit_public_path(@public) %> |
+<%= link_to 'Back', publics_path %>

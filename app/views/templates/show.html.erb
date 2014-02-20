@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="large-8 columns large-centered">
+		<p id="notice"><%= notice %></p>
+		<h1><%= @template.name.capitalize %></h1>
+		<p>Asset Host: <%= @template.asset_host %></p>
+		<p> <%= @template.selected ? "This is the template being used." : "This template is not active." %> </p>
+
+		<%= link_to 'Edit', edit_template_path(@template) %> |
+		<%= link_to 'Back', templates_path %>
+	</div>
+</div>

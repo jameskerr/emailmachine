@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= @template.name.capitalize %> Email Builder</title>
+		<%= render 'shared/style' %>
+		<%= csrf_meta_tags %>
+		<link rel="shortcut icon" href="/favicon-email.ico"/>
+	</head>
+	<body id="preview" style="padding:0; margin:0">
+		<%= render "shared/#{@template.name}_menu" %>
+		<div id="settings" >
+			<%= link_to "Settings", templates_url %>
+		</div>
+		<% if notice %>
+		<p class="notice"><%= notice %></p>
+		<% end %>
+		<% if alert %>
+		<p class="alert"><%= alert %></p>
+		<% end %>
+		<%= yield %>
+		<%= javascript_include_tag "application" %>
+	</body>
+</html>

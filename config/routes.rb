@@ -1,4 +1,25 @@
 EmailMachine::Application.routes.draw do
+  
+  devise_for :users
+
+  get "user/index"
+  match "user/approve" => 'user#approve', via: [:get, :post]
+  get "preview/download"
+  get "preview/generate"
+  get "preview/raw"
+  get 'preview' => 'preview#index'
+  post 'stories/sort' => 'stories#sort'
+  post 'jobs/sort' => 'jobs#sort'
+  post 'jobs/delete_all' => 'jobs#delete_all'
+  post 'publics/sort' => 'publics#sort'
+  
+  resources :jobs
+  resources :stories
+  resources :publics
+  resources :events
+  resources :templates
+
+  root :to => 'preview#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="large-8 columns large-centered">
+
+    <%= form_for(@public) do |f| %>
+      <% if @public.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@public.errors.count, "error") %> prohibited this public from being saved:</h2>
+
+          <ul>
+          <% @public.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+
+        <%= f.label :body %>
+        <%= f.text_area :body %><br>
+
+        <%= f.label :position %>
+        <%= f.number_field :position %>
+
+        <%= f.submit :class => "small button success radius" %>
+        <%= link_to 'Back', preview_url %>
+    <% end %>
+  </div>
+</div>

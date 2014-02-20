@@ -1,0 +1,74 @@
+<tr id="<%= weekly_story.id %>">
+  <td style="position: relative">
+    <div class="action-menu">
+         <div class="drag-handle"></div>
+        <!-- Actions you can take -->
+        <div class="action edit-story">
+          <%= link_to "edit", edit_story_path(weekly_story), :class => 'button-link' %>
+        </div>
+        <div class="action destroy-story">
+          <%= link_to 'X', weekly_story, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %>
+        </div>
+    </div>
+    <table width="600" class="content" cellspacing="0" cellpadding="0">  
+      <tr>
+        <td>
+          <table width="600" cellspacing="0" cellpadding="0" id="section-1">
+            <tr>
+              <td>
+                <!-- Image -->
+                <table width="290" cellspacing="0" cellpadding="0" align="left" class="col-table">
+                  <tr>
+                    <td class="cell-image">
+                      <a href="<%= weekly_story.link %>">
+                        <img src="<%= @template.asset_host + weekly_story.image_name%>" width="270" height="200" alt="<%= weekly_story.title %>" />
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Paragraph -->
+                <table width="300" cellspacing="0" cellpadding="5" align="right" class="col-table">
+                  <tr>
+                    <td>
+                      <h2 style="color:#a82439;"><%= weekly_story.title %></h2>
+                      <% if !weekly_story.subtitle.blank? %>
+                      <span style="color:#a82439;font-size:16px;"><%= weekly_story.subtitle %></span>
+                      <br/>
+                      <% end %>
+                      <br/>
+                      <span style="line-height:20px;"><%= weekly_story.body.html_safe %></span>
+                      </td>
+                    </tr>
+                  </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Spacing and line -->
+      
+      <tr>
+        <td>
+          <table width="600" cellspacing="0" cellpadding="0" class="row-seperator">
+            <tr>
+              <!-- Don't show the line for the last story -->
+              <td height="30" 
+              <% unless weekly_story == @stories.last %>
+              style="line-height:0;border-bottom:solid 1px #a9a9a8;"
+              <% end %>
+
+              >&nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td height="40" style="line-height: 0">&nbsp;
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>

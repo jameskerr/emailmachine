@@ -1,0 +1,35 @@
+// Place all the styles related to the stories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.story_preview p, 
+.story_preview a,
+.story_preview li,
+.story_preview ul,
+.story_preview ol  {
+	font-family: Helvetica, Arial, sans-serif; 
+	font-size: 16px; 
+	line-height: 22px; 
+	letter-spacing: .2px; 
+	color: #3a3c4e; 
+	font-weight: 400; 
+	margin: 0;
+	background: #fff;
+}
+.story_preview ul,
+.story_preview ol {
+	margin-left: 2em;
+}
+.story_preview a {
+	color: #98012e;
+	text-decoration: underline;
+}
+
+
+
+.story_preview .main-image, .content-body {
+	background: #fff;
+}
+.main-image {
+	border: none;
+}

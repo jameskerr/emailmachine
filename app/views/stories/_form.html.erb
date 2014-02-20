@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="large-8 columns large-centered">
+	<%= form_for(@story) do |f| %>
+		<% if @story.errors.any? %>
+			<div id="error_explanation">
+				<h2><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h2>
+
+				<ul>
+				<% @story.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+				</ul>
+			</div>
+		<% end %>
+
+	<%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :subtitle %>
+    <%= f.text_field :subtitle %>
+    
+	<%= f.label :body %>
+    <%= f.text_area :body %>
+    <br />
+	<%= f.label :image_name %>
+    <%= f.text_field :image_name %>
+	
+    <%= f.label :call_to_action %>
+    <%= f.text_field :call_to_action %>
+		
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+
+    <%= f.submit :class => "small button success radius" %>
+	<%= link_to 'Back', preview_url %>
+	<% end %>
+	</div>
+</div>
+

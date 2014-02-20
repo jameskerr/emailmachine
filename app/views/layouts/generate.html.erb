@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= @template.name.capitalize %></title>
+		<style>
+			<%= raw(EmailMachine::Application.assets.find_asset( "#{@template.name}.css").body) %>
+		</style>
+	</head>
+	<body marginheight="0" topmargin="0" marginwidth="0" style="padding:0, margin:0">
+		<%= yield  %>
+	</body>
+</html>
