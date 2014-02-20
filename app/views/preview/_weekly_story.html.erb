@@ -32,9 +32,9 @@
                 <table width="300" cellspacing="0" cellpadding="5" align="right" class="col-table">
                   <tr>
                     <td>
-                      <h2 style="color:#a82439;"><%= weekly_story.title %></h2>
+                      <h2 style="color:#a82439;"><%= weekly_story.title.html_safe %></h2>
                       <% if !weekly_story.subtitle.blank? %>
-                      <span style="color:#a82439;font-size:16px;"><%= weekly_story.subtitle %></span>
+                      <span style="color:#a82439;font-size:16px;"><%= weekly_story.subtitle.html_safe %></span>
                       <br/>
                       <% end %>
                       <br/>
