@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //=	require jquery.ui.all
+//= require ckeditor/override
 //= require ckeditor/init
 //= require_tree .
 
