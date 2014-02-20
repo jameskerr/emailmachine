@@ -1,0 +1,56 @@
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  color: #62605a; }
+
+img {
+  outline: none;
+  text-decoration: none;
+  -ms-interpolation-mode: bicubic;
+  display: block;
+  margin: 0 auto; }
+
+table {
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+table td {
+  border-collapse: collapse; }
+
+h1, h2, h3, h4 {
+  padding: 0;
+  margin: 0; }
+
+a {
+  color: #a82439;
+  text-decoration: none; }
+
+@media only screen and (max-width: 480px) {
+  table[class="main-table"],
+  table[width="600"],
+  table[class="col-table"] {
+    width: 320px !important; }
+
+  .img-banner, .mobile-hide {
+    display: none !important; }
+
+  #cell-banner {
+    background: url(img/weekly-banner320x140.jpg);
+    background-repeat: no-repeat;
+    width: 320px;
+    height: 140px; }
+
+  .mobile-br {
+    display: inline !important; }
+
+  td.cell-image {
+    text-align: center !important; }
+
+  .col-spacer {
+    display: none !important; } }
