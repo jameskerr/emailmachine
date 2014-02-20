@@ -8,13 +8,29 @@ body {
   color: #62605a;
 }
 
-img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic; display:block; margin:0 auto;}
-table {mso-table-lspace:0pt;mso-table-rspace:0pt; border-collapse:collapse; border-spacing:0;}
-table td { border-collapse: collapse; }
+img {
+  outline:none; 
+  text-decoration:none; 
+  -ms-interpolation-mode: bicubic; 
+  display:block; 
+  margin:0 auto;
+}
+
+table {
+  mso-table-lspace:0pt
+  ;mso-table-rspace:0pt; 
+  border-collapse:collapse; 
+  border-spacing:0;
+}
+table td { 
+  border-collapse: collapse; 
+}
 
 h1, h2, h3, h4 {
   padding: 0;
   margin: 0;
+  text-decoration: none;
+  outline: none;
 }
 
 a {
