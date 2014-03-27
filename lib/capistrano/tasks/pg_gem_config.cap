@@ -1,0 +1,10 @@
+desc "Install pg gem with the config path"
+task :config_pg_gem do
+  on roles(:all) do
+    if test("bundle config build.pg --with-pg-config=/usr/pgsql-9.3/bin/pg_config")
+      info "pg_config added for bundler"
+    else
+      error "pg config not added for bundler"
+    end
+  end
+end
