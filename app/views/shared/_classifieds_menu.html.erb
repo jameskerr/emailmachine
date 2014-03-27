@@ -1,0 +1,10 @@
+<div id="menu">
+  <%= link_to "Home", preview_url %>
+  <%= link_to "+ Story", new_story_path %>
+  <%= link_to "+ Job", new_job_path %>
+  <%= link_to "+ Event", new_event_path %>
+  <%= link_to "+ Public", new_public_path %>
+  <%= link_to "Generate", :controller => 'preview', :action => 'generate' %>
+  <%= link_to "Download", :controller => 'preview', :action => 'download' %>
+  <%= link_to "Raw Code", :controller => 'preview', :action => 'raw' %>
+</div>

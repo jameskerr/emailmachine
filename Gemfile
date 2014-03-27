@@ -60,9 +60,13 @@ gem 'rails_12factor', group: :production
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano', group: :development
+gem 'capistrano',  '~> 3.1', group: :development
+gem 'capistrano-rvm', group: :development
+gem 'capistrano-rails', '~> 1.1', group: :development
+gem 'capistrano-puma', require: false
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'puma'
 
 ruby "2.1.0"
