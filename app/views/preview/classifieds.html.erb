@@ -77,11 +77,16 @@
 						<table cellspacing="0" border="0" cellpadding="0" width="100%">
 							<tr>
 								<td valign="top" width="366" class="content"> <!--Main Bar-->
-									<table width="100%" id="stories-table" cellpadding="0" cellspacing="0"> <!-- Stories -->
+									<table width="366" id="stories-table" cellpadding="0" cellspacing="0"> <!-- Stories -->
 										<tbody>
 											<% @stories.each do |story| %>
 											<tr id="<%= story.id %>">
-												<td>
+												<td style="position: relative">
+													<div class="action-menu">
+														<div class="drag-handle"></div>
+														<div class="action edit-story"><%= link_to "edit", edit_story_path(story), :class => 'button-link' %></div>
+														<div class="action destroy-story"><%= link_to 'X', story, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %></div>
+													</div>
 													<table width="100%" border="0" cellspacing="0" cellpadding="0">
 														<% unless story == @stories.first %>
 														<tr>
@@ -95,8 +100,6 @@
 														</tr>
 														<tr>
 															<td align="left" class="news">
-																<div class="action edit-story"><%= link_to "edit", edit_story_path(story), :class => 'button-link' %></div>
-																<div class="action destroy-story"><%= link_to 'X', story, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %></div>
 																<p><%= story.title %></p>
 															</td>
 														</tr>
