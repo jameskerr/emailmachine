@@ -39,7 +39,10 @@ $("#publics-list").sortable({
 			data: load,
 			url: '/publics/sort'
 		}); // end ajax
-	}// end update
+	},// end update
+	handle: ".drag-handle",
+	placeholder: "sortable-placeholder",
+	cursor: "move"
 }); // end Job Sortable options
 
 

@@ -173,8 +173,11 @@
 															<ul id="jobs-list" class="sort-list">
 																<% @jobs.each do |job| %>
 																<li id="<%= job.id %>" style="position: relative;">
-																	<div class="action edit-job"><%= link_to "edit", edit_job_path(job), :class => 'button-link' %></div>
-																	<div class="action destroy-job"><%= link_to 'X', job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %></div>
+																	<div class="action-menu">
+																		<div class="drag-handle"></div>
+																		<div class="action edit-story"><%= link_to "edit", edit_job_path(job), :class => 'button-link' %></div>
+																		<div class="action destroy-story"><%= link_to 'X', job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %></div>
+																	</div>
 																	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 																		<tr>
 																			<td height="20"></td>
@@ -222,9 +225,11 @@
 																	<table width="100%" border="0" cellpadding="0" cellspacing="0" style="position: relative;">
 																		<tr>
 
-																			<td height="20">
-																				<div class="action edit-event"><%= link_to "edit", edit_event_path(event), :class => 'button-link' %></div>
-																				<div class="action destroy-event"><%= link_to 'X', event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %></div>
+																			<td height="20" style="position:relative;">
+																				<div class="action-menu">
+																					<div class="action edit-story"><%= link_to "edit", edit_event_path(event), :class => 'button-link' %></div>
+																					<div class="action destroy-story"><%= link_to 'X', event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %></div>
+																				</div>
 																			</td>
 																		</tr>
 																	</table>
@@ -259,7 +264,7 @@
 																		<td height="30"></td>
 																	</tr>
 													</table><!--/break-->
-													<table class="side-section" width="100%" cellspacing="0" cellpadding="0">
+													<table class="side-section" cellspacing="0" cellpadding="0">
 														<tr>
 															<td width="14">&nbsp;
 															</td>
@@ -267,14 +272,17 @@
 																<% unless @publics.count == 0 %>
 																<h2>Public Interest News</h2>
 																<% end %>
-																<ul id="publics-list" class="sort-list">
+																<ul id="publics-list" class="sort-list" style="position:relative;">
 																	<% @publics.each do |public| %>
 																	<li id="<%= public.id %>" style="position: relative;">
 																		<table width="100%" border="0" cellpadding="0" cellspacing="0">
 																			<tr>
 																				<td height="10">
-																					<div class="action edit-public"><%= link_to "edit", edit_public_path(public), :class => 'button-link' %></div>
-																					<div class="action destroy-public"><%= link_to 'X', public, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %></div></td>
+																					<div class="action-menu"><div class="drag-handle"></div>
+																						<div class="action edit-story"><%= link_to "edit", edit_public_path(public), :class => 'button-link' %></div>
+																						<div class="action destroy-story"><%= link_to 'X', public, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %></div>
+																					</div>
+																				</td>
 																				</tr>
 																			</table>
 																			<table class="public" width="100%" border="0" cellpadding="0" cellspacing="0">
